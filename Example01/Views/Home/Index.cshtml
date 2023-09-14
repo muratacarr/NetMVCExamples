@@ -1,4 +1,4 @@
-﻿@model Example01.Entities.About
+﻿@model Example01.Models.IndexViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -61,11 +61,11 @@
             <div class="">
                 <span class="text">Hakkımda</span>
                 <h1 class="mb-4 title">
-                    <span class="type-js"><span class="text-js"> @Model.Fullname </span></span><br>
-                   @Model.JobTitle
+                    <span class="type-js"><span class="text-js"> @Model.About.Fullname </span></span><br>
+                   @Model.About.JobTitle
                 </h1>
                 <p class="mx-lg-5">
-                   @Model.Description
+                   @Model.About.Description
                 </p>
             </div>
             <div class="row">
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-lg-6 mt-lg-0 mt-5">
                     <div class="position-relative">
-                        <img src="~/theme/assets/@Model.ImagePath" alt="" class="radius-image img-fluid">
+                        <img src="~/theme/assets/@Model.About.ImagePath" alt="" class="radius-image img-fluid">
                     </div>
                 </div>
             </div>
@@ -143,36 +143,22 @@
                         Portfolio work. And I always ready to impress the audience with my Creativity.
                     </p>
                     <div class="skills-bars mt-5">
-                        <div class="progress-info">
-                            <h6 class="progress-tittle">UI/UX Design</h6>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 70%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+
+
+                        @foreach (var skill in Model.Skills)
+                        {
+                            <div class="progress-info">
+                                <h6 class="progress-tittle">@skill.Title</h6>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @skill.Rate%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="progress-info">
-                            <h6 class="progress-tittle">
-                                Ideas &amp; Technology
-                            </h6>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="progress-info">
-                            <h6 class="progress-tittle">Branding Design</h6>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="progress-info mb-0">
-                            <h6 class="progress-tittle">Responsive Web Design</h6>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                                </div>
-                            </div>
-                        </div>
+                        }
+
+
+
+
                     </div>
                 </div>
             </div>

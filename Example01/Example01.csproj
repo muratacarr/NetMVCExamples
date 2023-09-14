@@ -139,9 +139,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\About.cs" />
     <Compile Include="Entities\Skill.cs" />
+    <Compile Include="Entities\Slogan.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

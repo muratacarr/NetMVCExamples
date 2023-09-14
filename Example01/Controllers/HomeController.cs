@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Example01.Entities;
+using Example01.Extensions;
 using Example01.Models;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,18 @@ namespace Example01.Controllers
         {
             SqlConnection connection = new SqlConnection("server=.\\SQLExpress; database=CvDb; integrated security =true");
 
-            // Object Relation Mapping
             var about = connection.QueryFirst<About>(sql: "select * from Abouts");
 
-            return View(about);
+            var skills = connection.Query<Skill>(sql: "ap_ListSkill", commandType:System.Data.CommandType.StoredProcedure);
+
+            
+
+            var viewModel = new IndexViewModel();
+
+            viewModel.About = about;
+            viewModel.Skills = skills;
+
+            return View(viewModel);
         }
 
         public ActionResult Portfolio()
