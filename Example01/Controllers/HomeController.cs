@@ -25,12 +25,25 @@ namespace Example01.Controllers
 
             var skills = connection.Query<Skill>(sql: "ap_ListSkill", commandType:System.Data.CommandType.StoredProcedure);
 
-            
+            var services = connection.Query<Service>(sql: "select * from Services");
+
+            var serviceSlogan = connection.QuerySingle<Slogan>(commandType: System.Data.CommandType.StoredProcedure, sql: "ap_ListSlogan", param: new
+            {
+                @sectionName = "Services"
+            });
+
+            var skillSlogan = connection.QuerySingle<Slogan>(sql: "ap_ListSlogan", param: new
+            {
+                @sectionName = "Skills"
+            }, commandType: System.Data.CommandType.StoredProcedure);
 
             var viewModel = new IndexViewModel();
 
             viewModel.About = about;
             viewModel.Skills = skills;
+            viewModel.Services = services;
+            viewModel.ServiceSlogan = serviceSlogan;
+            viewModel.SkillSlogan = skillSlogan;
 
             return View(viewModel);
         }

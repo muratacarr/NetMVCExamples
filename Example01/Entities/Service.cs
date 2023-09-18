@@ -5,13 +5,9 @@ using System.Web;
 
 namespace Example01.Entities
 {
-    public class Slogan
+    public class Service
     {
         public int Id { get; set; }
-        public string Sectionname { get; set; }
-
-        public string Title  { get; set; }
-
-        public string Description { get; set; }
+        public string Title { get; set; }
     }
 }
