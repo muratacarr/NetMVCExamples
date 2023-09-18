@@ -1,0 +1,60 @@
+Create database CvDb
+GO
+USE [CvDb]
+GO
+/****** Object:  Table [dbo].[Abouts]    Script Date: 9/13/2023 8:57:41 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Abouts](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Fullname] [nvarchar](400) NULL,
+	[JobTitle] [nvarchar](400) NULL,
+	[Description] [nvarchar](max) NULL,
+	[ImagePath] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Slogans]    Script Date: 9/13/2023 8:57:41 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Slogans](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Sectionname] [nvarchar](250) NULL,
+	[Title] [nvarchar](150) NULL,
+	[Description] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Abouts] ON 
+
+INSERT [dbo].[Abouts] ([Id], [Fullname], [JobTitle], [Description], [ImagePath]) VALUES (1, N'Yavuz Selim KAHRAMAN', N'Expert Software Developer', N'Çay içmeyi kahveye göre daha çok sever, sistemler inþa eder, developerlarý geliþtirir. Pozitif düþünür. Daima fokusunu korur.', N'images/about.jpg')
+SET IDENTITY_INSERT [dbo].[Abouts] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Slogans] ON 
+
+INSERT [dbo].[Slogans] ([Id], [Sectionname], [Title], [Description]) VALUES (1, N'Services', N'Hizmetler', N'<span>Markanýzý oluþturun</span> ve iþinizi büyütün')
+INSERT [dbo].[Slogans] ([Id], [Sectionname], [Title], [Description]) VALUES (2, N'Skills', N'Yetenekler', N'Çok yetenekliyimdir')
+SET IDENTITY_INSERT [dbo].[Slogans] OFF
+GO
+/****** Object:  StoredProcedure [dbo].[ap_ListSlogan]    Script Date: 9/13/2023 8:57:41 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[ap_ListSlogan]
+@sectionName nvarchar(120)
+as
+begin
+select * from Slogans where Sectionname =@sectionName
+end
+GO

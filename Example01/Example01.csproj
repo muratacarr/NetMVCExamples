@@ -135,7 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AnasayfaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\About.cs" />
     <Compile Include="Entities\Service.cs" />
