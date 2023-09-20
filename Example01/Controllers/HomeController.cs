@@ -89,12 +89,13 @@ namespace Example01.Controllers
         //}
 
         [HttpGet]
-        public ActionResult Contact3(string w3lName)
+        public ActionResult Contact()
         {
 
             return View();
         }
 
+        [HttpGet]
         public ActionResult Portfolio()
         {
             SqlConnection connection = new SqlConnection("server=.\\SQLExpress; database=CvDb; integrated security =true");
