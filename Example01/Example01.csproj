@@ -136,6 +136,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Entities\About.cs" />
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\CustomerReview.cs" />
@@ -165,6 +166,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\test.cshtml" />
     <Content Include="Views\Shared\ContactView.cshtml" />
+    <Content Include="Views\Partial\Products.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,7 +1,9 @@
 ﻿@model Example01.Models.IndexViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
+
 
 
 <!-- Domain Modal -->
@@ -62,10 +64,10 @@
                 <span class="text">Hakkımda</span>
                 <h1 class="mb-4 title">
                     <span class="type-js"><span class="text-js"> @Model.About.Fullname </span></span><br>
-                   @Model.About.JobTitle
+                    @Model.About.JobTitle
                 </h1>
                 <p class="mx-lg-5">
-                   @Model.About.Description
+                    @Model.About.Description
                 </p>
             </div>
             <div class="row">
@@ -97,7 +99,7 @@
                     </h3>
                     <p class="mt-4">
 
-                       @Html.Raw(Model.ServiceSlogan.Description)
+                        @Html.Raw(Model.ServiceSlogan.Description)
                     </p>
                     <ul class="service-list mt-md-5 mt-4">
                         @foreach (var item in Model.Services)
@@ -108,7 +110,7 @@
 
 
                     </ul>
-                  
+
                 </div>
                 <div class="col-lg-6 mt-lg-0 mt-5">
                     <div class="position-relative">
@@ -138,10 +140,10 @@
                 <div class="col-lg-6 mt-lg-0 mt-md-5 mt-4">
                     <span class="text">Yetenekler</span>
                     <h3 class="title-big">
-                       @Model.SkillSlogan.Title
+                        @Model.SkillSlogan.Title
                     </h3>
                     <p class="mt-4">
-                      @Model.SkillSlogan.Description
+                        @Model.SkillSlogan.Description
                     </p>
                     <div class="skills-bars mt-5">
 
@@ -167,7 +169,6 @@
     </div>
 </section>
 <!-- //home page about section -->
-
 <!-- home page about section -->
 <section class="w3l-clients w3l-homeblock3" id="skills">
     <div class="midd-w3 py-5">
@@ -191,7 +192,7 @@
                                     <div class="testimonial">
                                         <blockquote>
                                             <q>
-                                               @customerReview.Comment
+                                                @customerReview.Comment
                                             </q>
                                         </blockquote>
                                         <div class="testi-des">
@@ -218,7 +219,6 @@
     </div>
 </section>
 <!-- //home page about section -->
-
 @*  ViewComponent *@
 
 @*@Html.Partial("test", new Example01.Models.Product{Name="Iphone 14", Price=85000})*@
@@ -227,7 +227,7 @@
 
 @Html.Partial("ContactView")
 
-@*@Html.Action("","")*@
+
 
 @section scripts{
     <script>
