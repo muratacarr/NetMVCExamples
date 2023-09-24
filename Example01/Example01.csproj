@@ -140,6 +140,7 @@
     <Compile Include="Entities\About.cs" />
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\CustomerReview.cs" />
+    <Compile Include="Entities\Portfolio.cs" />
     <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\Skill.cs" />
     <Compile Include="Entities\Slogan.cs" />

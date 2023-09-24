@@ -22,7 +22,7 @@
                     </a>*@
 
                 <a class="navbar-brand" href="@Url.Action("Index","Home")">
-                    <span>Yavuz Selim KAHRAMAN</span>
+                    <span>Murat ACAR</span>
                 </a>
 
                 @*@Html.ActionLink("Yavuz Selim KAHRAMAN", "Index", "Home", new { }, new { @class = "navbar-brand" })*@
@@ -36,16 +36,16 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item @(ViewBag.Anasayfa!=null?ViewBag.Anasayfa:"")">
                             @*<a class="nav-link" href="index.html">Anasayfa </a>*@
                             @Html.ActionLink("Anasayfa", "Index", "Home", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @(ViewBag.Port!=null?ViewBag.Port:"")">
 
                             @*<a class="nav-link" href="portfolio.html">Portfolyo</a>*@
                             @Html.ActionLink("Portfolyo", "Portfolio", "Home", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @(ViewBag.Contact!=null?ViewBag.Contact:"")">
                             @Html.ActionLink("İletişim", "Contact", "Home", null, new { @class = "nav-link" })
                             @*<a class="nav-link" href="/Home/Contact">İletişim</a>*@
                         </li>

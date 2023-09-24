@@ -28,7 +28,7 @@ namespace Example01.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            SqlConnection connection = new SqlConnection("server=.\\SQLExpress; database=CvDb; integrated security =true");
+            SqlConnection connection = new SqlConnection("server=192.168.226.128; database=CvDb; User Id=sa;Password=Password1;");
 
             var about = connection.QueryFirst<About>(sql: "select * from Abouts");
 
@@ -56,7 +56,7 @@ namespace Example01.Controllers
             viewModel.ServiceSlogan = serviceSlogan;
             viewModel.SkillSlogan = skillSlogan;
             viewModel.CustomerReviews = reviews;
-
+            ViewBag.Anasayfa = "active";
             return View(viewModel);
         }
 
@@ -69,9 +69,10 @@ namespace Example01.Controllers
         [HttpPost]
         public ActionResult Contact(Contact contact)
         {
-            SqlConnection connection = new SqlConnection("server=.\\SQLExpress; database=CvDb; integrated security =true");
+            
+            SqlConnection connection = new SqlConnection("server=192.168.226.128; database=CvDb; User Id=sa;Password=Password1;");
             var affectedRows =  connection.Execute(sql: "ap_CreateContact", commandType: System.Data.CommandType.StoredProcedure, param: contact);
-
+            ViewBag.Contact = "active";
             return RedirectToAction("Index");
         }
 
@@ -91,32 +92,40 @@ namespace Example01.Controllers
         [HttpGet]
         public ActionResult Contact()
         {
-
+            ViewBag.Contact = "active";
             return View();
         }
 
         [HttpGet]
         public ActionResult Portfolio()
         {
-            SqlConnection connection = new SqlConnection("server=.\\SQLExpress; database=CvDb; integrated security =true");
+            List<Portfolio> portfolios= new List<Portfolio>();
+
+            SqlConnection connection = new SqlConnection("server=192.168.226.128; database=CvDb; User Id=sa;Password=Password1;");
             SqlCommand command = new SqlCommand();
             command.Connection = connection;
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.CommandText = "ap_ListSlogan";
+            command.CommandText = "ap_portfolio";
 
 
-            command.Parameters.Add("@sectionName", "Skills");
+            //command.Parameters.Add("@sectionName", "Skills");
 
             connection.Open();
             var reader = command.ExecuteReader();
             while (reader.Read())
             {
-                var title = reader.GetString(2);
-                var description = reader.GetString(3);
+                portfolios.Add(new Portfolio()
+                {
+                    Name = reader.GetString(1),
+                    Description = reader.GetString(2),
+                    Url = "~"+reader.GetString(3)
+                });
             }
             connection.Close();
             reader.Close();
-            return View();
+
+            ViewBag.Port = "active";
+            return View(portfolios);
         }
 
         //public ActionResult Contact()

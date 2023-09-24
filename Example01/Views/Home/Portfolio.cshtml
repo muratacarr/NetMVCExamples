@@ -2,7 +2,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model List<Example01.Entities.Portfolio>
 <!-- Domain Modal -->
 <div class="modal right fade" id="DomainModal" tabindex="-1" role="dialog" aria-labelledby="DomainModalLabel2">
     <div class="modal-dialog" role="document">
@@ -58,87 +58,25 @@
     <div class="midd-w3 py-5">
         <div class="container py-lg-4 py-md-3">
             <div class="contact-heading text-center mb-5">
-                <span class="text">My Portfolio </span>
-                <h3 class="title-big">Some of my <span>Latest works</span></h3>
+                <span class="text">Portfolyo </span>
+                <h3 class="title-big">Son çalışmalarımdan bazıları</h3>
             </div>
             <div id="owl-portfolio" class="owl-carousel owl-theme mt-4 py-md-2 mb-4">
-                <div class="item">
-                    <div class="portfolio-content">
-                        <a href="#url" class="grid-anchor">
-                            <img src="~/theme/assets/images/template1.jpg" class="img-fluid" alt="" />
-                            <div class="template-info">
-                                <h3>Digital - Corporate Template</h3>
-                                <p class="description">Html template</p>
-                            </div>
-                        </a>
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <div class="portfolio-content">
+                            <a href="#url" class="grid-anchor">
+                                <img src="~/theme/assets/images/template3.jpg" class="img-fluid" alt="" />
+                                <div class="template-info">
+                                    <h3>@item.Name</h3>
+                                    <p class="description">@item.Description</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="portfolio-content">
-                        <a href="#url" class="grid-anchor">
-                            <img src="~/theme/assets/images/template2.jpg" class="img-fluid" alt="" />
-                            <div class="template-info">
-                                <h3>Solutions - Corporate Template</h3>
-                                <p class="description">Html template</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="portfolio-content">
-                        <a href="#url" class="grid-anchor">
-                            <img src="~/theme/assets/images/template3.jpg" class="img-fluid" alt="" />
-                            <div class="template-info">
-                                <h3>Medpill - Medical Template</h3>
-                                <p class="description">Html template</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="portfolio-content">
-                        <a href="#url" class="grid-anchor">
-                            <img src="~/theme/assets/images/template4.jpg" class="img-fluid" alt="" />
-                            <div class="template-info">
-                                <h3>Digital - Corporate Template</h3>
-                                <p class="description">Html template</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="portfolio-content">
-                        <a href="#url" class="grid-anchor">
-                            <img src="~/theme/assets/images/template5.jpg" class="img-fluid" alt="" />
-                            <div class="template-info">
-                                <h3>Solutions - Corporate Template</h3>
-                                <p class="description">Html template</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="portfolio-content">
-                        <a href="#url" class="grid-anchor">
-                            <img src="~/theme/assets/images/template6.jpg" class="img-fluid" alt="" />
-                            <div class="template-info">
-                                <h3>Medpill - Medical Template</h3>
-                                <p class="description">Html template</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="portfolio-content">
-                        <a href="#url" class="grid-anchor">
-                            <img src="~/theme/assets/images/template7.jpg" class="img-fluid" alt="" />
-                            <div class="template-info">
-                                <h3>Digital - Corporate Template</h3>
-                                <p class="description">Html template</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                }
+
                 <div class="item">
                     <div class="portfolio-content">
                         <a href="#url" class="grid-anchor">
