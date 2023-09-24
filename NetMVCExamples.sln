@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example02", "Example02\Exam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Db", "Db", "{72880C9A-57E4-4BDD-AD2C-C206021AD147}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\muratDb.txt = ..\..\..\muratDb.txt
 		sql.txt = sql.txt
 	EndProjectSection
 EndProject
